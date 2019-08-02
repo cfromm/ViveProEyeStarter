@@ -21,6 +21,8 @@ namespace ViveSR
                 /// </summary>
                 public bool EnableEye = true;
 
+                public int sensitivityParam = 1;
+
                 private static SRanipal_Eye_Framework Mgr = null;
                 public static SRanipal_Eye_Framework Instance
                 {
@@ -70,6 +72,26 @@ namespace ViveSR
                         Debug.LogError("[SRanipal] Initial Eye : " + result);
                         Status = FrameworkStatus.ERROR;
                     }
+
+
+                    // Change the eye parameter
+                    EyeParameter parameter = new EyeParameter
+                    {
+                        gaze_ray_parameter = new GazeRayParameter(),
+                    };
+
+                    Error error = SRanipal_Eye.GetEyeParameter(ref parameter);
+                    Debug.Log("GetEyeParameter: " + error + "\n" +
+                    "sensitive_factor: " + parameter.gaze_ray_parameter.sensitive_factor);
+
+                    // This is the only change I've made to the code lifted from the SRanipal_eyeSettingSample.cs
+                    //parameter.gaze_ray_parameter.sensitive_factor = parameter.gaze_ray_parameter.sensitive_factor == 1 ? 0.015f : 1;
+                    parameter.gaze_ray_parameter.sensitive_factor = parameter.gaze_ray_parameter.sensitive_factor = sensitivityParam;
+
+                    error = SRanipal_Eye.SetEyeParameter(parameter);
+                    Debug.Log("SetEyeParameter: " + error + "\n" +
+                    "sensitive_factor: " + parameter.gaze_ray_parameter.sensitive_factor);
+
                 }
 
                 public void StopFramework()

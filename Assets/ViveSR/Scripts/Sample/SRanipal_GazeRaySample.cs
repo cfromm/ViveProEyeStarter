@@ -11,6 +11,7 @@ namespace ViveSR
             public class SRanipal_GazeRaySample : MonoBehaviour
             {
                 public int LengthOfRay = 25;
+
                 [SerializeField] private LineRenderer GazeRayRenderer;
 
                 private void Start()
@@ -25,6 +26,7 @@ namespace ViveSR
 
                 private void Update()
                 {
+                    
                     if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING &&
                         SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.NOT_SUPPORT) return;
                     Vector3 GazeOriginCombinedLocal, GazeDirectionCombinedLocal;

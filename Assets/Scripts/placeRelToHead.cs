@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ploaceRelToHead : MonoBehaviour
+public class placeRelToHead : MonoBehaviour
 {
     public float xOffset = -5;
     

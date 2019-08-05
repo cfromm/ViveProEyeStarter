@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c456d26fe6eb5d34b9b3f3cc88c0bfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objDefaultDist: 5
+  objDefaultDist: 10
   objSizeDegs: 0.5
-  sphereCastRadius: 0.05
+  sphereCastRadius: 0.01
 --- !u!4 &80084165
 Transform:
   m_ObjectHideFlags: 0

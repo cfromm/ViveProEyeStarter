@@ -72,7 +72,7 @@ namespace ViveSR
                     trialStreams = new FileStream(trialOutput, FileMode.Create, FileAccess.Write);
 
                     //Call the function below to write the column names
-                    WriteHeader();
+                    //WriteHeader();
 
                 }
 
@@ -149,7 +149,7 @@ namespace ViveSR
 
                         }
 
-
+                        // WriteFile();
                     }
                 }
             
@@ -162,9 +162,6 @@ namespace ViveSR
                     //Vector4 camRow1 = cameraTransform.localToWorldMatrix.GetRow(1);
                     //Vector4 camRow2 = cameraTransform.localToWorldMatrix.GetRow(2);
                     //Vector4 camRow3 = cameraTransform.localToWorldMatrix.GetRow(3);
-
-                    
-
 
                     stringBuilder.Length = 0;
                     stringBuilder.Append(

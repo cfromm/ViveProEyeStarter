@@ -126,7 +126,7 @@ namespace ViveSR
                             {
 
                                 SRanipal_Eye.GetEyeData(ref eyeData);
-                                SRanipal_Eye.getVerboseData(ref verboseData);
+                                SRanipal_Eye.GetVerboseData(out verboseData);
 
                                 combinedEIHDir = verboseData.combined.eye_data.gaze_direction_normalized;
                                 combinedGIWDir = Camera.main.transform.TransformDirection(combinedEIHDir);

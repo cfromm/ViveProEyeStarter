@@ -128,9 +128,14 @@ namespace ViveSR
                                 SRanipal_Eye.GetEyeData(ref eyeData);
                                 SRanipal_Eye.GetVerboseData(out verboseData);
 
-                                combinedEIHDir = verboseData.combined.eye_data.gaze_direction_normalized;
+                                //combinedEIHDir = verboseData.combined.eye_data.gaze_direction_normalized;
+                                
+                                //combinedGazeOriginMM = verboseData.combined.eye_data.gaze_origin_mm;
+                                
+                                //This is a function written by them that does all this natively, don't bother to waste the cycles when the info is already available
+                                SRanipal_Eye.GetGazeRay(GazeIndex.COMBINE, out combinedGazeOriginMM, out combinedEIHDir);
                                 combinedGIWDir = Camera.main.transform.TransformDirection(combinedEIHDir);
-                                combinedGazeOriginMM = verboseData.combined.eye_data.gaze_origin_mm;
+
 
                                 frameNumber = eyeData.frame_sequence;
                                 timeStamp = eyeData.timestamp;

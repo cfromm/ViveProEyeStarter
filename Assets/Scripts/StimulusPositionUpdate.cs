@@ -37,10 +37,11 @@ public class StimulusPositionUpdate : MonoBehaviour {
     /// </summary>
     void UpdateWithGazePosition()
     {
-        cameraRaycast = offsets * eyetrackerData.binocularEIHdirection;
-        basePoint = eyetrackerData.binocularEIHorigin;
-        transform.localPosition = basePoint + cameraRaycast * stimulusDepthM;
-        transform.LookAt(Camera.main.transform.TransformPoint(eyetrackerData.binocularEIHorigin));
+        cameraRaycast = offsets * Vector3.forward; //* eyetrackerData.binocularEIHdirection;
+        basePoint = Camera.main.transform.position;//eyetrackerData.binocularEIHorigin;
+        transform.localPosition =  cameraRaycast * stimulusDepthM;
+        //transform.LookAt(Camera.main.transform.TransformPoint(eyetrackerData.binocularEIHorigin));
+        transform.LookAt(Camera.main.transform.position);
         transform.localRotation *= Quaternion.Euler(90, 0, 0);
         transform.localScale = new Vector3(2*Mathf.Tan((stimulusRadiusDeg*Mathf.PI)/180) * stimulusDepthM, 0, 2*Mathf.Tan(stimulusRadiusDeg * Mathf.PI / 180) * stimulusDepthM);
         Debug.DrawLine(transform.parent.position, transform.position, Color.magenta);

@@ -6,12 +6,22 @@ public class CreateGrid : MonoBehaviour
 {
     public Transform cameraTransform;
 
+    public float targetSize_deg;
+    public float targetSpacing_deg;
+    public float targetDepth_meters;
+
+    public GameObject eyetracker;
+    public GameObject head_camera;
+    public ViveSR.anipal.Eye.SR_GazeGetter eyetrackerData;
+
     //List<GameObject> targetList;
 
 
     void Start()
     {
-
+        head_camera = GameObject.FindGameObjectWithTag("MainCamera");
+        eyetracker = GameObject.FindGameObjectWithTag("Eyetracker");
+        eyetrackerData = eyetracker.GetComponent<ViveSR.anipal.Eye.SR_GazeGetter>();
         // -15 to 15 along az and el
         float[] xPos_target = new float[] { .3882F, .3882F, .3882F, 0F,0F,0F,-.3882F,-.3882F,-.3882F};
         float[] yPos_target = new float[] { -0.375F,0F, 0.375F ,-0.3882F,0F, 0.3882F, -0.375F, 0F, 0.375F };

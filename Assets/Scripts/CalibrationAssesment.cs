@@ -57,7 +57,7 @@ public class CalibrationAssesment : MonoBehaviour
             target_number++;
 
             // If Array count excedes Array index then go back to first position in array
-            if (target_number >= 8)
+            if (target_number >= 9)
             {
                 target_number = 0;
             }
